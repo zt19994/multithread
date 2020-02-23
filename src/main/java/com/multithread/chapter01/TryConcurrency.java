@@ -1,5 +1,7 @@
 package com.multithread.chapter01;
 
+import org.junit.Test;
+
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -9,9 +11,37 @@ import java.util.concurrent.TimeUnit;
  */
 public class TryConcurrency {
 
-    public static void main(String[] args) {
+    /**
+     * 尝试并发
+     */
+    @Test
+    public void firstTest() {
         browseNews();
         enjoyMusic();
+    }
+
+    /**
+     * 测试并发运行交替输出
+     */
+    @Test
+    public void concurrencyTest() {
+        // 通过匿名内部类的方式创建线程，从写run方法
+        new Thread() {
+            @Override
+            public void run() {
+                enjoyMusic();
+            }
+        }.start();
+        browseNews();
+    }
+
+    /**
+     * lambda 表达式改造
+     */
+    @Test
+    public void lambdaTest() {
+        new Thread(TryConcurrency::enjoyMusic).start();
+        browseNews();
     }
 
 
