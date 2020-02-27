@@ -4,7 +4,7 @@ package com.multithread.chapter01;
  * 模拟叫号机程序
  * <p>
  * <p>
- * runnable 接口说明
+ * runnable 接口说明 - 将线程的控制本身和业务逻辑的运行分离开来，达到职责分明、功能单一的原则
  * <p>
  * 创建线程的方式 ：
  * 1、构造一个Thread
