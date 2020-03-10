@@ -111,4 +111,25 @@ public class InterruptThread {
         TimeUnit.MICROSECONDS.sleep(2);
         thread.interrupt();
     }
+
+
+    /**
+     * 测试可中断方法
+     */
+    @Test
+    public void test() {
+        System.out.println("Main 线程is interrupted?" + Thread.interrupted());
+
+        // 中断
+        Thread.currentThread().interrupt();
+        // isInterrupted 不擦除中断标识
+        System.out.println("Main 线程is interrupted?" + Thread.currentThread().isInterrupted());
+
+        try {
+            TimeUnit.MINUTES.sleep(1);
+        } catch (InterruptedException e) {
+            // 由于isInterrupted 不擦除中断标识，所有会被中断捕获
+            System.out.println("I will be interrupted still.");
+        }
+    }
 }
