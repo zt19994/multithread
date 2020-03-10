@@ -90,4 +90,25 @@ public class InterruptThread {
         TimeUnit.MICROSECONDS.sleep(2);
         System.out.println("线程是isInterrupted吗？ " + thread.isInterrupted());
     }
+
+
+    /**
+     * interrupted 方法  interrupted 判断到了其被中断，立即擦除了中断标识，并且只有一次返回true，后面都将返回false
+     */
+    @Test
+    public void interruptedTest() throws InterruptedException {
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                while (true) {
+                    System.out.println(Thread.interrupted());
+                }
+            }
+        };
+        thread.setDaemon(true);
+        thread.start();
+
+        TimeUnit.MICROSECONDS.sleep(2);
+        thread.interrupt();
+    }
 }
