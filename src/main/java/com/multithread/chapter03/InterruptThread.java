@@ -67,7 +67,27 @@ public class InterruptThread {
      * 测试捕获中断信号
      */
     @Test
-    public void catchInterruptedTest() {
+    public void catchInterruptedTest() throws InterruptedException {
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        TimeUnit.MINUTES.sleep(1);
+                    } catch (InterruptedException e) {
+                        // 捕获interrupt后会将interrupt标识复原
+                        System.out.println("I am be interrupted?" + isInterrupted());
+                    }
+                }
+            }
+        };
 
+        thread.setDaemon(true);
+        thread.start();
+        TimeUnit.MICROSECONDS.sleep(2);
+        System.out.println("线程是isInterrupted吗？ " + thread.isInterrupted());
+        thread.interrupt();
+        TimeUnit.MICROSECONDS.sleep(2);
+        System.out.println("线程是isInterrupted吗？ " + thread.isInterrupted());
     }
 }
