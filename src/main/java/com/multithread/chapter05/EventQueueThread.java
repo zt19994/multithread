@@ -9,6 +9,11 @@ import static java.lang.Thread.currentThread;
  *
  * notifyAll 唤醒所有等待中的线程
  *
+ * wait set 线程休息室
+ * 1、线程调用了某个对象的wait方法后，将会加入与该对象monitor关联的wait set方法，并且释放monitor的所有权
+ * 2、notify 弹出一个wait set中的线程
+ * 3、notifyAll弹出所有wait set中的线程
+ *
  * @author zt1994 2020/3/19 20:33
  */
 public class EventQueueThread {
