@@ -11,7 +11,8 @@ import java.util.concurrent.TimeUnit;
  * 4、getName()用于获取group的名字
  * 5、getParent()用于获取group的父group，如果父group不存在，则返回null
  * 6、list()该方法没有返回值，执行该方法会将group中所有的活跃线程信息全部输出到控制台
- * 7、parentOf(ThreadGroup g)会判断group的最大优先级，最大优先级不能超过父group的最大优先级，执行该方法不仅会改变当前group
+ * 7、parentOf(ThreadGroup g)会判断当前group是不是给定的group的父group，如果给定的group是自己也会返回true
+ * 8、setMaxPriority(int pri)指定group的最大优先级，最大优先级不能超过父group的最大优先级，执行该方法不仅会改变当前group
  * 的最大优先级，还会改变所有子group的优先级
  *
  * @author zt1994 2020/3/26 20:41
