@@ -4,6 +4,10 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 空异常处理
+ * <p>
+ * 1、先判断父类是否有uncaughtException
+ * 2、再判断是否有全局 uncaughtException
+ * 3、都没有直接将异常的堆栈信息定向到System.err中
  *
  * @author zt1994 2020/4/7 21:28
  */
