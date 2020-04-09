@@ -27,6 +27,13 @@ public interface ThreadPool {
     int getInitSize();
 
     /**
+     * 获取线程池最大的线程数
+     *
+     * @return
+     */
+    int getMaxSize();
+
+    /**
      * 获取线程池的核心线程数量
      *
      * @return
