@@ -81,6 +81,9 @@ public class BasicThreadPool extends Thread implements ThreadPool {
         }
     }
 
+    /**
+     * 维护线程池
+     */
     private void newThread() {
         InternalTask internalTask = new InternalTask(runnableQueue);
         Thread thread = this.threadFactory.createThread(internalTask);
