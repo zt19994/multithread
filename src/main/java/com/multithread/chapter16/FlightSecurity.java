@@ -19,7 +19,7 @@ public class FlightSecurity {
      */
     private String idCard = "null";
 
-    public void pass(String boardingPass, String idCard) {
+    public synchronized void pass(String boardingPass, String idCard) {
         this.boardingPass = boardingPass;
         this.idCard = idCard;
         this.count++;
@@ -33,6 +33,7 @@ public class FlightSecurity {
         if (boardingPass.charAt(0) != idCard.charAt(0)) {
             throw  new RuntimeException("====Exception====" + toString());
         }
+        System.out.println("检查通过");
     }
 
 
