@@ -1,7 +1,5 @@
 package com.multithread.chapter17;
 
-import com.multithread.T;
-
 /**
  * 读写锁测试
  *
@@ -20,7 +18,7 @@ public class ReadWriteLockTest {
                         char c = text.charAt(index);
                         shareData.write(c);
                         System.out.println(Thread.currentThread() + " write " + c);
-                    } catch (InterruptedException e){
+                    } catch (InterruptedException e) {
                         e.getLocalizedMessage();
                     }
                 }
