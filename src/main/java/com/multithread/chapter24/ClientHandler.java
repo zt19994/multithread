@@ -32,6 +32,19 @@ public class ClientHandler implements Runnable {
             this.chat();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            this.release();
+        }
+    }
+
+
+    private void release() {
+        try {
+            if (socket != null) {
+                socket.close();
+            }
+        } catch (Throwable e) {
+
         }
     }
 
